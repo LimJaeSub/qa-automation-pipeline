@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"dbcec0ebe20ab981b4fb2ceba8c8bc31","name":"사용자 인증","statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"7cfb44ab64961c61192d767fff8500ec","name":"로그인","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
