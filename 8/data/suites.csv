@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"존재하지 않는 키워드 입력 시 결과 0개 확인","12500","test_search_no_result","tests","Thu Mar 05 09:13:19 UTC 2026","passed","Thu Mar 05 09:13:31 UTC 2026","TestSearch","test_search","",""
+"유효한 키워드 입력 시 검색 결과 1개 이상 노출 확인","2537","test_search_valid_keyword","tests","Thu Mar 05 09:13:16 UTC 2026","passed","Thu Mar 05 09:13:19 UTC 2026","TestSearch","test_search","",""
+"잘못된 비밀번호 로그인 시도 후 오류 메시지 확인","1798","test_login_failure_password","tests","Thu Mar 05 09:13:14 UTC 2026","passed","Thu Mar 05 09:13:16 UTC 2026","TestLogin","test_login","",""
+"유효한 계정으로 로그인 후 URL 변경 확인","7026","test_login_success","tests","Thu Mar 05 09:13:06 UTC 2026","passed","Thu Mar 05 09:13:13 UTC 2026","TestLogin","test_login","",""
