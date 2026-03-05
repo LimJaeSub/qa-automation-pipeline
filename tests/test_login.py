@@ -5,8 +5,6 @@ from pages.login_page import LoginPage
 @allure.epic("사용자 인증")
 # 로그인 테스트 그룹화
 @allure.feature("로그인")
-
-
 class TestLogin:
     # 로그인 : 정상 로그인
     @allure.story("정상 로그인")
