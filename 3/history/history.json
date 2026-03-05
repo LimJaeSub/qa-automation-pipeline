@@ -1,1 +1,0 @@
-{"86600b41e86dab7ca99f472fa61e4b05":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"47afa9e3aa4cbb46","reportUrl":"https://LimJaeSub.github.io/qa-automation-pipeline/3/#testresult/47afa9e3aa4cbb46","status":"passed","time":{"start":1772471306197,"stop":1772471309724,"duration":3527}}]}}
