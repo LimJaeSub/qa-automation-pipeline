@@ -14,3 +14,19 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
+    
+# 테스트 실패 시 스크린샷 저장
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+    
+    if report.when == "call" and report.failed:
+        driver = item.funcargs.get("driver")
+        if driver:
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name = "실패 스크린샷",
+                attachment_type = allure.attachment_type.PNG
+            )
+            

@@ -7,6 +7,8 @@ class LoginPage(BasePage):
     EMAIL = (By.CSS_SELECTOR, "input[data-qa='login-email']")
     PASSWORD = (By.CSS_SELECTOR, "input[data-qa='login-password']")
     LOGIN_BTN = (By.CSS_SELECTOR, "button[data-qa='login-button']")
+    ERROR_MSG  = (By.XPATH, "//p[contains(text(),'Your email or password is incorrect')]")
+    
 
     def open(self):
         self.driver.get(self.URL)
@@ -15,3 +17,9 @@ class LoginPage(BasePage):
         self.type(self.EMAIL, email)
         self.type(self.PASSWORD, password)
         self.click(self.LOGIN_BTN)
+        
+    def get_error_message(self):
+        try:
+            return self.find(self.ERROR_MSG).text
+        except:
+            return None
