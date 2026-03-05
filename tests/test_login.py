@@ -13,7 +13,7 @@ class TestLogin:
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.description("유효한 계정으로 로그인 후 URL 변경 확인")
     
-    def test_login_success(driver):
+    def test_login_success(self,driver):
         page = LoginPage(driver)
         
         with allure.step("로그인 페이지 열기"):
@@ -30,7 +30,7 @@ class TestLogin:
     @allure.severity(allure.severity_level.NORMAL)
     @allure.description("잘못된 비밀번호 로그인 시도 후 오류 메시지 확인")
     
-    def test_login_failure_password(driver):
+    def test_login_failure_password(self,driver):
         page = LoginPage(driver)
         
         with allure.step("로그인 페이지 열기"):
