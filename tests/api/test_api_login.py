@@ -16,7 +16,7 @@ class TestLoginAPI:
     def test_login_sucess(self):
         with allure.step("로그인 API 호출"):
             response = requests.post(
-                f"{BASE_URL}/login",
+                f"{BASE_URL}/verifyLogin",
                 data={"email":"jasubtest@example.com", "password":"test1234"}
             )
         with allure.step("응답 상태 코드 확인"):
@@ -25,7 +25,7 @@ class TestLoginAPI:
     def test_login_failure(self):
         with allure.step("잘못된 로그인 API 호출"):
             response = requests.post(
-                f"{BASE_URL}/login",
+                f"{BASE_URL}/verifyLogin",
                 data={"email":"test@example.com","password":"asdfd123x"}
             )
         
