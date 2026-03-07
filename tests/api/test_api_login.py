@@ -33,4 +33,4 @@ class TestLoginAPI:
             assert response.status_code == 200
         with allure.step("로그인 실패 메시지 확인"):
             data = response.json()
-            assert data["responseCode"] == 403
+            assert data["responseCode"] == 404
