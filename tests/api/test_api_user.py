@@ -74,4 +74,4 @@ class TestUserAPI:
         with allure.step("회원 삭제 성공 메시지 확인"):
             data = response.json()
             assert data["responseCode"] == 200
-            assert data["message"] == "User deleted!"
+            assert data["message"] == "Account deleted!"
