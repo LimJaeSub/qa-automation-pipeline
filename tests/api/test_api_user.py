@@ -51,3 +51,27 @@ class TestUserAPI:
             data = response.json()
             assert data["responseCode"] == 201
             assert data["message"] == "User created!"
+
+    @allure.story("회원 삭제")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("회원 삭제 API 호출 시 계정 삭제 확인")
+    def test_delete_account(self):
+        with allure.step("테스트용 계정 생성"):
+            requests.post(
+                f"{BASE_URL}/createAccount",
+                data=TEST_USER
+            )
+
+        with allure.step("회원 삭제 요청"):
+            response = requests.delete(
+                f"{BASE_URL}/deleteAccount",
+                data={"email": TEST_USER["email"], "password": TEST_USER["password"]}
+            )
+        
+        with allure.step("응답 상태 코드 확인"):
+            assert response.status_code == 200
+
+        with allure.step("회원 삭제 성공 메시지 확인"):
+            data = response.json()
+            assert data["responseCode"] == 200
+            assert data["message"] == "User deleted!"
