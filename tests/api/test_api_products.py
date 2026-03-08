@@ -40,3 +40,20 @@ class TestProductsAPI:
             data = response.json()
             assert "products" in data
             assert len(data["products"]) > 0, "검색 결과가 최소 1개 이상이여야 합니다."
+
+    @allure.story("잘못된 HTTP 메서드 검증")
+    @allure.severity(allure.severity_level.MINOR)
+    @allure.description("상품 목록 API에 잘못된 HTTP 메서드 사용 시 405 응답 확인")
+    def test_post_products_list_no_allowed(self):
+        with allure.step("상품 목록 POST 요청"):
+            response = requests.post(
+                f"{BASE_URL}/productsList",
+            )
+
+        with allure.step("상태코드 200 확인"):
+            assert response.status_code == 200, "응답 상태 코드는 200이어야 합니다."
+        
+        with allure.step("응답 코드 405 확인"):
+            data = response.json()
+            assert data["responseCode"] == 405
+            assert data["message"] == "This request method is not supported."
