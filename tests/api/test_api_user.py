@@ -75,3 +75,37 @@ class TestUserAPI:
             data = response.json()
             assert data["responseCode"] == 200
             assert data["message"] == "Account deleted!"
+
+
+    @allure.story("회원정보 수정")
+    @allure.severity(allure.severity_level.NORMAL)
+    @allure.description("회원정보 수정 API 호출 시 정보 수정 확인")
+    def test_update_account(self):
+        with allure.step("테스트용 계정 생성"):
+            requests.post(
+                f"{BASE_URL}/createAccount",
+                data=TEST_USER
+            )
+
+        with allure.step("회원정보 수정 요청"):
+            update_user = TEST_USER.copy()
+            update_user["name"] = "Jasub Updated"
+            update_user["city"] = "Jasub City"
+            response = requests.put(
+                f"{BASE_URL}/updateAccount",
+                data = update_user
+            )
+        
+        with allure.step("응답 상태 코드 확인"):
+            assert response.status_code == 200
+        
+        with allure.step("회원정보 수정 성공 메시지 확인"):
+            data = response.json()
+            assert data["responseCode"] == 200
+            assert data["message"] == "User updated!"
+        
+        with allure.step("테스트 계정 삭제(정리)"):
+            response = requests.delete(
+                f"{BASE_URL}/deleteAccount",
+                data={"email": TEST_USER["email"], "password": TEST_USER["password"]}
+            )
