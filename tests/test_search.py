@@ -1,3 +1,4 @@
+# test_search.py
 import allure
 from pages.search_page import SearchPage
 

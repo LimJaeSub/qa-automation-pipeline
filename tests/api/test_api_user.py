@@ -1,3 +1,4 @@
+# test_api_user.py
 import requests
 import allure
 
@@ -24,7 +25,7 @@ TEST_USER = {
     "mobile_number": "01012345678"
 }
 
-@allure.epic("사용자 인증")
+@allure.epic("회원관리")
 @allure.feature("회원가입 API")
 class TestUserAPI:
 
