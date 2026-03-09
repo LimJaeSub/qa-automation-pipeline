@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"6b4f5b9338b2f5f1fe893860547c213c","name":"상품","statistic":{"failed":1,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":2}},{"uid":"dbcec0ebe20ab981b4fb2ceba8c8bc31","name":"사용자 인증","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
