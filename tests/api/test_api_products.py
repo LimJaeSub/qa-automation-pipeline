@@ -57,3 +57,21 @@ class TestProductsAPI:
             data = response.json()
             assert data["responseCode"] == 405
             assert data["message"] == "This request method is not supported."
+            
+    @allure.story("상품 검색 - 파라미터 누락")
+    @allure.severity(allure.severity_level.MINOR)
+    @allure.description("상품 검색 파라미터 없이 호출 시 400 응답 확인")
+    def test_search_products_no_parameter(self):
+        with allure.step("/searchProduct API 호출 (파라미터 누락)"):
+            response = requests.post(
+                f"{BASE_URL}/searchProduct",
+            )
+        
+        with allure.step("상태 코드 400 확인"):
+            assert response.status_code == 400, "응답 상태 코드는 400이어야 합니다."
+        
+        with allure.step("에러 메시지 확인"):
+            data = response.json()
+            assert data["responseCode"] == 400
+            assert data["message"] == "Bad request, search_product parameter is missing in POST request."
+        
