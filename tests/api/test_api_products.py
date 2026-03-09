@@ -67,8 +67,9 @@ class TestProductsAPI:
                 f"{BASE_URL}/searchProduct",
             )
         
-        with allure.step("상태 코드 400 확인"):
-            assert response.status_code == 400, "응답 상태 코드는 400이어야 합니다."
+        with allure.step("상태 코드 200 확인"):
+            assert response.status_code == 200, "응답 상태 코드는 200이어야 합니다."
+            # 사이트는 항상 200으로 응답
         
         with allure.step("에러 메시지 확인"):
             data = response.json()
