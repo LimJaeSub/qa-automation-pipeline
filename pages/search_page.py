@@ -7,6 +7,7 @@ class SearchPage(BasePage):
     SEARCH_INPUT = (By.CSS_SELECTOR, "input[id='search_product']")
     SEARCH_BTN = (By.CSS_SELECTOR, "button[id='submit_search']")
     RESULTS = (By.CSS_SELECTOR, ".productinfo")
+    NO_RESULTS_MESSAGE = (By.CSS_SELECTOR, ".features_items p") # 현재 버그로 잡히는 locator
     
     def open(self):
         self.driver.get(self.URL)
@@ -21,3 +22,10 @@ class SearchPage(BasePage):
             return self.driver.find_elements(*self.RESULTS)
         except:
             return []
+        
+    def get_no_results_message(self):
+        try:
+            elements = self.driver.find_elements(*self.NO_RESULTS_MESSAGE) # 요소가 없을 수도 있으니 implicit wait 사용
+            return elements[0].text if elements else None
+        except:
+            return None
